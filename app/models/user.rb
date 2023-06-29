@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   before_create :generate_app_id
 
-  #バリデーション
+  # バリデーション
   validates :name, presence: true
   validates :app_id, presence: true
 
@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   private
 
-  def generate_app_id  #ユーザーが互いに見つけるためにランダムなユーザーIDを付与
+  def generate_app_id  # ユーザーが互いに見つけるためにランダムなユーザーIDを付与
     self.app_id = SecureRandom.hex(5)
   end
 
