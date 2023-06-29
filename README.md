@@ -1,24 +1,69 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type   | Options                  |
+| ------------------ | ------ | ------------------------ |
+| name               | string | null: false              |
+| user_id            | string | null: false              |
+| email              | string | null: false,unique: true |
+| encrypted_password | string | null: false              |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :tasks 
+- has_many :rooms
+- has_many :comments
+- has_many :mytasks
 
-* Configuration
+## rooms テーブル
 
-* Database creation
+| Column             | Type         | Options                        |
+| ------------------ | ------------ | ------------------------------ |
+| user               | references   | null: false, foreign_key: true |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
 
-* Services (job queues, cache servers, search engines, etc.)
+## tasks テーブル
 
-* Deployment instructions
+| Column             | Type         | Options                        |
+| ------------------ | ------------ | ------------------------------ |
+| taskname           | string       | null: false                    |
+| frequency_id       | integer      | null: false                    |
+| when               | date         | null: false                    |
+| user               | references   | null: false, foreign_key: true |
 
-* ...
+### Association
+
+- belongs_to :user
+- has_many   :comments
+- has_one    :mytask
+
+## comments テーブル
+
+| Column             | Type         | Options                        |
+| ------------------ | ------------ | ------------------------------ |
+| content            | text         | null: false                    |
+| task               | references   | null: false, foreign_key: true |
+| user               | references   | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :task
+
+## mytasks テーブル
+
+| Column             | Type         | Options                        |
+| ------------------ | ------------ | ------------------------------ |
+| task               | references   | null: false, foreign_key: true |
+| user               | references   | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :task
+
+
