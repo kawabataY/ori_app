@@ -1,0 +1,15 @@
+
+<div class='creat-room'>
+  <h1>新規ルーム</h1>
+  <%=form_with url: rooms_path, method: :post, local: true do |f|%>
+    <div class='room-form__field'>
+      <%= f.label :pin, 'パートナーのID', class: 'partner_user_id__label'%><br>
+      <%= f.text_field :pin, class: 'room-form__input', placeholder: 'パートナーのID'%>
+    </div>
+    <%= f.submit "Submit"%>
+  <% end %>
+</div>
+<div class='enter-room'>
+  <p>あなたのユーザーIDは</p>
+  <%= @user.pin%>
+</div>
