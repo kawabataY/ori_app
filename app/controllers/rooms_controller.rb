@@ -1,7 +1,6 @@
 class RoomsController < ApplicationController
 
   def index
-    @room = Room.find(params[:id])
   end
 
   def new
@@ -16,10 +15,25 @@ class RoomsController < ApplicationController
     @room.users << partner_user
 
     if @room.save
-      redirect_to root_path
+      current_user.room = @room 
+      partner_user.room = @room 
+      partner_user.save
+      redirect_to rooms_tasks_path(@room)
     else
       render :new
     end
+  end
+
+  def join_action
+    user = current_user 
+    room_id = user.rooms.first.id 
+    redirect_to room_tasks_path(room_id)
+  end
+
+  private
+
+  def params
+      params.permit(:pin)
   end
 
   

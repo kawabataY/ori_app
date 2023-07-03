@@ -1,6 +1,6 @@
 
 <div class='creat-room'>
-  <h1>新規ルーム</h1>
+  <h4>パートナーを探す</h4>
   <%=form_with url: rooms_path, method: :post, local: true do |f|%>
     <div class='room-form__field'>
       <%= f.label :pin, 'パートナーのID', class: 'partner_user_id__label'%><br>
@@ -10,6 +10,8 @@
   <% end %>
 </div>
 <div class='enter-room'>
-  <p>あなたのユーザーIDは</p>
-  <%= @user.pin%>
+  <h4>パートナーに探してもらう</h4>
+  <p>あなたのIDは:<%= @user.pin%>です。</p>
+    <%= link_to 'タスク一覧へ移動', join_action_path %>
+    <p><small>※パートナーがルームを作ってから遷移してください</small></p>
 </div>
