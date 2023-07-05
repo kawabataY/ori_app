@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
-  root to: 'rooms#index'
+  root to: 'rooms#join_action'
 
   get 'join_action', to: 'rooms#join_action', as: 'join_action'
 

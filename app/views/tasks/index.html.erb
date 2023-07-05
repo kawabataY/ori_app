@@ -1,1 +1,7 @@
 <h1>こんにちは</h1>
+<h1>Current Room Users:</h1>
+<ul>
+  <% @users.each do |user| %>
+    <li><%= user.name %></li>
+  <% end %>
+</ul>

@@ -32,9 +32,9 @@ class RoomsController < ApplicationController
 
   private
 
-  def params
-      params.permit(:pin)
-  end
+  # def params
+  #     params.permit(:pin)
+  # end
 
   
 end
