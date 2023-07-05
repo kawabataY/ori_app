@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   get 'join_action', to: 'rooms#join_action', as: 'join_action'
 
   resources :rooms, only: [:index, :new, :create] do
-    resources :tasks, only: [:index]
+    resources :tasks, only: [:index, :new, :create]
   end
 end
