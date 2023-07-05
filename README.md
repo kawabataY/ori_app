@@ -12,7 +12,7 @@
 ### Association
 
 - has_many :tasks 
-- has_many :rooms
+- belongs_to :rooms
 - has_many :comments
 - has_many :mytasks
 
@@ -20,11 +20,12 @@
 
 | Column             | Type         | Options                        |
 | ------------------ | ------------ | ------------------------------ |
+| room_id            | string       | null: false
 | user               | references   | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :user
+- has_many :user
 
 ## tasks テーブル
 

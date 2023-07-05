@@ -1,0 +1,17 @@
+
+<div class='creat-room'>
+  <h4>パートナーを探す</h4>
+  <%=form_with url: rooms_path, method: :post, local: true do |f|%>
+    <div class='room-form__field'>
+      <%= f.label :pin, 'パートナーのID', class: 'partner_user_id__label'%><br>
+      <%= f.text_field :pin, class: 'room-form__input', placeholder: 'パートナーのID'%>
+    </div>
+    <%= f.submit "Submit"%>
+  <% end %>
+</div>
+<div class='enter-room'>
+  <h4>パートナーに探してもらう</h4>
+  <p>あなたのIDは:<%= @user.pin%>です。</p>
+    <%= link_to 'タスク一覧へ移動', join_action_path %>
+    <p><small>※パートナーがルームを作ってから遷移してください</small></p>
+</div>
