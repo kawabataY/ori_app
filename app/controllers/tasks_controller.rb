@@ -4,6 +4,7 @@ class TasksController < ApplicationController
   def index
     @room = Room.find(params[:room_id])
     @users = @room.users
+    @tasks = @room.tasks.includes(:user)
   end
 
   def new

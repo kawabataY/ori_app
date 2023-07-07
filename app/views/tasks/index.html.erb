@@ -8,3 +8,13 @@
 <div class="creat-task-form">
    <%= link_to '投稿',new_room_task_path, class: "create-task" %>
 </div>
+
+<% @tasks.each do |task| %>
+  <div class="task">
+    <%= task.user.name %>
+    <%= task.content %>
+    <%= task.when %>
+    <%= task.frequency.name %>
+  </div>
+<% end %>
+
