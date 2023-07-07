@@ -28,6 +28,8 @@ class TasksController < ApplicationController
 
   def edit
     @task = Task.find(params[:id])
+    @comment = Comment.new
+    @comments = @task.comments.includes(:user)
   end
 
   def update
