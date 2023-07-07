@@ -16,6 +16,8 @@
 
         <%= f.submit "編集"%>
       <% end %>
+
+      <%= link_to '削除', room_task_path(@room, @task), method: :delete, class: "edit-task"%>
     </div>
   </div>
 </div>
