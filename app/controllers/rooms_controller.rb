@@ -1,10 +1,12 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user!, only: :join_action
+
 
   def index
   end
 
   def new
-    @user = current_user
+    @user = current_user|| User.new
   end
 
   def create
@@ -18,16 +20,16 @@ class RoomsController < ApplicationController
       current_user.room = @room 
       partner_user.room = @room 
       partner_user.save
-      redirect_to rooms_tasks_path(@room)
+      redirect_to room_tasks_path(@room)
     else
       render :new
     end
   end
 
   def join_action
-    user = current_user 
-    room_id = user.rooms.first.id 
-    redirect_to room_tasks_path(room_id)
+      user = current_user 
+      room_id = user.rooms.first.id 
+      redirect_to room_tasks_path(room_id)
   end
 
   private
