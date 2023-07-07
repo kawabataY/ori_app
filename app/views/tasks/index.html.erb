@@ -15,6 +15,7 @@
     <%= task.content %>
     <%= task.when %>
     <%= task.frequency.name %>
+    <%= link_to '編集', edit_room_task_path(@room, task), class: "edit-task"%>
   </div>
 <% end %>
 
