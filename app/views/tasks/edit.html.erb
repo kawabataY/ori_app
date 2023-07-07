@@ -33,6 +33,7 @@
       <% @comments.each do |comment| %>
         <li class="comments_list">
           <%= comment.content%>
+          <%= link_to '編集', edit_room_task_comment_path(@task.room, @task, comment), class: "edit-comment" %>
         </li>
       <% end %>
     </ul>
