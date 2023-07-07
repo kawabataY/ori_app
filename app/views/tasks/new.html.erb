@@ -1,0 +1,17 @@
+<div class='creat-task'>
+  <h4>タスクを設定</h4>
+  <%=form_with model: [@room, @task], local: true do |f|%>
+    <div class='task-form__field'>
+      <%= f.label :content, '内容', class: ''%><br>
+      <%= f.text_field :content, class: '', placeholder: 'タスク'%>
+    </div>
+    <div class='task-form__field'>
+      <%= f.collection_select(:frequency_id, Frequency.all, :id, :name, {}, {class:"frequency-select"}) %>
+    </div>
+    <div class='task-form__field'>
+      <%= f.date_field :when, class: '', placeholder: '' %>
+    </div>
+
+    <%= f.submit "Submit"%>
+  <% end %>
+</div>

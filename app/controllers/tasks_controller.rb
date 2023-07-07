@@ -6,6 +6,21 @@ class TasksController < ApplicationController
     @users = @room.users
   end
 
+  def new
+    @task = Task.new
+    @room = Room.find(params[:room_id])
+  end
+
+  def create
+    @room = Room.find(params[:room_id])
+    @task = @room.tasks.new(task_params)
+    if @task.save
+      redirect_to room_tasks_path(@room)
+    else
+      :new
+    end
+  end
+
   private
 
   def move_to_root
@@ -13,6 +28,10 @@ class TasksController < ApplicationController
     unless @room.users.include?(current_user)
       redirect_to root_path
     end
+  end
+
+  def task_params
+    params.require(:task).permit(:content,:frequency_id,:when).merge(user_id: current_user.id)
   end
 
 end
