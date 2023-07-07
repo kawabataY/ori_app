@@ -5,6 +5,8 @@ class TasksController < ApplicationController
     @room = Room.find(params[:room_id])
     @users = @room.users
     @tasks = @room.tasks.includes(:user)
+    
+    @comments = @tasks.comments
   end
 
   def new
@@ -28,6 +30,8 @@ class TasksController < ApplicationController
 
   def edit
     @task = Task.find(params[:id])
+    @comment = Comment.new
+    @comments = @task.comments.includes(:user)
   end
 
   def update
