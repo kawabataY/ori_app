@@ -1,0 +1,62 @@
+@media screen and (max-width: 480px){
+
+  .device-contents {
+    height: 60vh;
+    padding: 20vh 15vw;
+    background-color: #E9E5DA;
+    font-family: 'Kosugi Maru', sans-serif;
+    position: relative;
+  }
+
+  .login-title{
+    text-align: center;
+    font-size: 50px;
+    position: absolute;
+    top: 10vh;
+    left: 25vw;
+  }
+  .device-container{
+    padding: 10vw;
+    border-radius: 10%;
+    width: 50vw;
+    height: 50vh;
+    background-color: #F9F9F9;
+  }
+  .form-group{
+    margin-bottom: 50px;
+  }
+  .input-default{
+    height: 30px;
+    width: 100%;
+  }
+  .actions{
+    text-align: center;
+  }
+  .login-red-btn{
+    margin-top: 60px;
+    background: linear-gradient(to bottom, #F9F9F9, #E9E5DA, #D8D8D8);
+    box-shadow: 1px 6px 6px 0px rgba(0,0,0,0.2);
+    color: black;
+    padding: 25px 20px;
+    border: none;
+    border-radius: 50%;
+  }
+
+  .to-registration{
+    background-color: #5E869C;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 10vh;
+    text-align: center;
+  }
+  .to-registration-btn{
+    text-decoration: none;
+    background-color: #E9E5DA;
+    color:#5E869C;
+    border-radius: 20%;
+    padding: 5% 10%;
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,14 @@
+@media screen and (max-width: 480px){
+
+  .signup-title{
+    text-align: center;
+    font-size: 50px;
+    position: absolute;
+    top: 10vh;
+    left: 33vw;
+  }
+  .input-default-name{
+    height: 30px;
+    width: 100%;
+  }
+}

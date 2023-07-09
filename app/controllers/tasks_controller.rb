@@ -5,8 +5,6 @@ class TasksController < ApplicationController
     @room = Room.find(params[:room_id])
     @users = @room.users
     @tasks = @room.tasks.includes(:user)
-    
-    @comments = @tasks.comments
   end
 
   def new
