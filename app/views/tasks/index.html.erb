@@ -21,6 +21,7 @@
     <ul class="tasks-list">
       <% current_user.mytasks.each do |mytask| %>
         <li class="task">
+          <%= link_to "完了", room_task_path(room_id: @room.id, id: mytask.task_id), method: :delete %>
           <%= mytask.task.content %>
         </li>
       <% end %>
