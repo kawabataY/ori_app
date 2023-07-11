@@ -1,0 +1,2 @@
+class DonetasksController < ApplicationController
+end

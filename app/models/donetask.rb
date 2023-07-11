@@ -1,0 +1,2 @@
+class Donetask < ApplicationRecord
+end
