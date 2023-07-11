@@ -19,7 +19,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to room_tasks_path(@room)
     else
-      :new
+      render :new
     end
   end
 

@@ -6,9 +6,12 @@
     <h2>未振分のタスク</h2>
     <ul class="tasks-list">
       <% @tasks.each do |task| %>
-        <li class="task">
-          <%= task.content %>
-       </li>
+        <% unless task.mytasks.exists?(user_id: current_user.id)%>
+          <li class="task">
+            <%= task.content %>
+            <%= link_to "追加", room_task_mytasks_path(room_id: @room.id, task_id: task.id), method: :post %>
+          </li>
+        <% end %>
       <% end %>
     </ul>
   </div>
@@ -16,9 +19,9 @@
   <div class="current-users-tasks">
     <h2><%= current_user.name%>のタスク</h2>
     <ul class="tasks-list">
-      <% @tasks.each do |task| %>
+      <% current_user.mytasks.each do |mytask| %>
         <li class="task">
-          <%= task.content %>
+          <%= mytask.task.content %>
         </li>
       <% end %>
     </ul>
@@ -27,10 +30,12 @@
   <div class="partner-tasks">
     <h2><%= @partner_users.name %>のタスク</h2>
     <ul class="tasks-list">
-      <% @tasks.each do |task| %>
-        <li class="task">
-          <%= task.content %>
-        </li>
+      <% @partner_users.each do |partner| %>
+        <% partner.mytasks.each do |mytask| %>
+          <li class="task">
+            <%= mytask.task.content %>
+          </li>
+        <% end %>
       <% end %>
     </ul>
   </div>
