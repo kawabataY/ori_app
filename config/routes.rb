@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :rooms, only: [:index, :new, :create] do
     resources :tasks, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+      resources :mytasks 
       resources :comments, only: [:edit, :update, :create]
     end
   end
