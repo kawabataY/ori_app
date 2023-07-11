@@ -9,7 +9,9 @@
         <% unless task.mytasks.exists?(user_id: current_user.id)%>
           <li class="task">
             <%= task.content %>
-            <%= link_to "追加", room_task_mytasks_path(room_id: @room.id, task_id: task.id), method: :post %>
+            <%= link_to room_task_mytasks_path(room_id: @room.id, task_id: task.id), method: :post, class:"ido-link" do %>
+              <i class="fa-solid fa-hand"></i>
+            <% end %>
           </li>
         <% end %>
       <% end %>
@@ -20,11 +22,17 @@
     <h2><%= current_user.name%>のタスク</h2>
     <ul class="tasks-list">
       <% current_user.mytasks.each do |mytask| %>
-        <li class="task">
-        
-          <%= link_to "削除", room_task_path(room_id: @room.id, id: mytask.task_id), method: :delete %>
-          <%= mytask.task.content %>
-        </li>
+        <% unless Donetask.exists?(task_id: mytask.task_id, user_id: current_user.id) %>
+          <li class="task">
+            <%= link_to room_task_donetasks_path(room_id: @room.id, task_id: mytask.task_id), method: :post, class: "done-task-link" do %>
+                <i class="fa-solid fa-thumbs-up"></i>
+            <% end %>
+            <%= mytask.task.content %>
+            <%= link_to room_task_path(room_id: @room.id, id: mytask.task_id), method: :delete, class: "delete-task-link" do %>
+              <i class="fa-solid fa-trash-can"></i>
+            <% end %>
+          </li>
+        <% end %>
       <% end %>
     </ul>
   </div>
@@ -34,9 +42,11 @@
     <ul class="tasks-list">
       <% @partner_users.each do |partner| %>
         <% partner.mytasks.each do |mytask| %>
-          <li class="task">
-            <%= mytask.task.content %>
-          </li>
+          <% unless Donetask.exists?(task_id: mytask.task_id, user_id: partner.id) %>
+            <li class="task">
+              <%= mytask.task.content %>
+            </li>
+          <% end %>
         <% end %>
       <% end %>
     </ul>

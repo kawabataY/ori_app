@@ -3,6 +3,7 @@ class Task < ApplicationRecord
   belongs_to :user
   belongs_to :room
   belongs_to :frequency
+  has_many :donetasks
   has_many :mytasks, dependent: :destroy
   has_many :comments, dependent: :destroy
 
