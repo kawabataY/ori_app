@@ -4,6 +4,7 @@ class TasksController < ApplicationController
   def index
     @room = Room.find(params[:room_id])
     @users = @room.users
+    @partner_users = @room.users.where.not(id: current_user.id)
     @tasks = @room.tasks.includes(:user)
   end
 

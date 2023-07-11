@@ -1,0 +1,45 @@
+@media screen and (max-width: 480px){
+  
+  .task-contents{
+    height: 87vh;
+    background-color: #E9E5DA;
+  }
+  .task-content-title{
+    text-align: center;
+    border-bottom: 1px dotted;
+    font-size: 20px;
+  }
+
+  .total-tasks{
+    margin-top: 10px;
+  }
+  .total-tasks h2{
+    text-align: center;
+    font-size: 30px;
+  }
+  .tasks-list{
+    margin: 10px 50px;
+  }
+  .task{
+    background-color: #F9F9F9;
+    padding: 20px;
+    width: 60vw;
+    border-radius: 50%;
+    font-size: 20px;
+    text-align: center;
+  }
+  .current-users-tasks{
+    margin-top: 10px;
+  }
+  .current-users-tasks h2{
+    text-align: center;
+      font-size: 30px;
+  }
+  .partner-tasks{
+    margin-top: 10px;
+  }
+  .partner-tasks h2{
+    text-align: center;
+      font-size: 30px;
+  }
+}
