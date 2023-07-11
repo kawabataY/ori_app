@@ -6,7 +6,7 @@
     <h2>未振分のタスク</h2>
     <ul class="tasks-list">
       <% @tasks.each do |task| %>
-        <% unless task.mytasks.exists?(user_id: current_user.id)%>
+        <% if task.when == Date.today && !task.mytasks.exists?(user_id: current_user.id) %>
           <li class="task">
             <%= task.content %>
             <%= link_to room_task_mytasks_path(room_id: @room.id, task_id: task.id), method: :post, class:"ido-link" do %>
@@ -22,12 +22,13 @@
     <h2><%= current_user.name%>のタスク</h2>
     <ul class="tasks-list">
       <% current_user.mytasks.each do |mytask| %>
-        <% unless Donetask.exists?(task_id: mytask.task_id, user_id: current_user.id) %>
+        <% task = mytask.task %>
+        <% if task.when == Date.today && !Donetask.exists?(task_id: task.id, user_id: current_user.id) %>
           <li class="task">
             <%= link_to room_task_donetasks_path(room_id: @room.id, task_id: mytask.task_id), method: :post, class: "done-task-link" do %>
                 <i class="fa-solid fa-thumbs-up"></i>
             <% end %>
-            <%= mytask.task.content %>
+            <%= task.content %>
             <%= link_to room_task_path(room_id: @room.id, id: mytask.task_id), method: :delete, class: "delete-task-link" do %>
               <i class="fa-solid fa-trash-can"></i>
             <% end %>
@@ -42,9 +43,10 @@
     <ul class="tasks-list">
       <% @partner_users.each do |partner| %>
         <% partner.mytasks.each do |mytask| %>
-          <% unless Donetask.exists?(task_id: mytask.task_id, user_id: partner.id) %>
+          <% task = mytask.task %>
+          <% if task.when == Date.today && !Donetask.exists?(task_id: task.id, user_id: partner.id) %>
             <li class="task">
-              <%= mytask.task.content %>
+              <%= task.task.content %>
             </li>
           <% end %>
         <% end %>
