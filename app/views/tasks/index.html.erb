@@ -1,21 +1,39 @@
-<h1>こんにちは</h1>
-<h1>Current Room Users:</h1>
-<ul>
-  <% @users.each do |user| %>
-    <li><%= user.name %></li>
-  <% end %>
-</ul>
-<div class="creat-task-form">
-   <%= link_to '投稿',new_room_task_path, class: "create-task" %>
+<%= render "shared/header" %>
+
+<div class="task-contents">
+  <h1 class="task-content-title">本日の予定</h1>
+  <div class="total-tasks">
+    <h2>未振分のタスク</h2>
+    <ul class="tasks-list">
+      <% @tasks.each do |task| %>
+        <li class="task">
+          <%= task.content %>
+       </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="current-users-tasks">
+    <h2><%= current_user.name%>のタスク</h2>
+    <ul class="tasks-list">
+      <% @tasks.each do |task| %>
+        <li class="task">
+          <%= task.content %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="partner-tasks">
+    <h2><%= @partner_users.name %>のタスク</h2>
+    <ul class="tasks-list">
+      <% @tasks.each do |task| %>
+        <li class="task">
+          <%= task.content %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
 
-<% @tasks.each do |task| %>
-  <div class="task">
-    <%= task.user.name %>
-    <%= task.content %>
-    <%= task.when %>
-    <%= task.frequency.name %>
-    <%= link_to '編集', edit_room_task_path(@room, task), class: "edit-task"%>
-  </div>
-<% end %>
-
+<%= render "shared/footer" %>

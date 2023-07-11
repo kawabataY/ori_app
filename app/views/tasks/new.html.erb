@@ -1,17 +1,33 @@
-<div class='creat-task'>
-  <h4>タスクを設定</h4>
-  <%=form_with model: [@room, @task], local: true do |f|%>
-    <div class='task-form__field'>
-      <%= f.label :content, '内容', class: ''%><br>
-      <%= f.text_field :content, class: '', placeholder: 'タスク'%>
-    </div>
-    <div class='task-form__field'>
-      <%= f.collection_select(:frequency_id, Frequency.all, :id, :name, {}, {class:"frequency-select"}) %>
-    </div>
-    <div class='task-form__field'>
-      <%= f.date_field :when, class: '', placeholder: '' %>
-    </div>
+<%= render "shared/header" %>
 
-    <%= f.submit "Submit"%>
-  <% end %>
+<div class='creat-task-contents'>
+  <h1 class="creat-task-title">タスクを設定</h1>
+  <div class="creat-task-content">
+    <%=form_with model: [@room, @task], local: true do |f|%>
+      <div class='task-form-field'>
+        <div class='create-form-wrap'>
+          <label class="create-form-text">What?</label>
+        </div>
+        <%= f.text_field :content, class: 'input-default', placeholder: 'タスク'%>
+      </div>
+      <div class='task-form-field'>
+        <div class='create-form-wrap'>
+          <label class="create-form-text">When？</label>
+        </div>
+        <%= f.date_field :when, class: 'input-date', placeholder: '' %>
+      </div>
+      <div class='task-form-field'>
+        <div class='create-form-wrap'>
+          <label class="create-frequency-text">オプション|頻度|</label>
+        </div>
+        <%= f.collection_select(:frequency_id, Frequency.all, :id, :name, {}, {class:"frequency-select"}) %>
+      </div>
+
+      <div class="creat-task-btn">
+        <%= f.submit "追加", class:"creat-btn" %>
+      </div>
+    <% end %>
+  </div>
 </div>
+
+<%= render "shared/footer" %>
