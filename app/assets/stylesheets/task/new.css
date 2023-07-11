@@ -1,0 +1,45 @@
+@media screen and (max-width: 480px){
+  .creat-task-contents{
+    height: 47vh;
+    padding: 20vh 15vw;
+    background-color: #E9E5DA;
+    font-family: 'Kosugi Maru', sans-serif;
+    position: relative;
+  }
+  .creat-task-title{
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 1vh;
+  }
+  .creat-task-content{
+    padding: 5vh 10vw 15vh 10vw;
+    border-radius: 10%;
+    width: 50vw;
+    height: 15vh;
+    background-color: #F9F9F9;
+  }
+  .task-form-field{
+    margin-top: 15px;
+  }
+  .input-date{
+    height: 30px;
+  }
+  .task-form-frequency{
+    
+  }
+  .frequency-select{
+    height: 30px;
+  }
+  .creat-task-btn{
+    margin-top: 30px;
+    text-align: center;
+  }
+  .creat-btn{
+    background: linear-gradient(to bottom, #F9F9F9, #E9E5DA, #D8D8D8);
+    box-shadow: 1px 6px 6px 0px rgba(0,0,0,0.2);
+    color: black;
+    padding: 25px 20px;
+    border: none;
+    border-radius: 50%;
+  }
+}
