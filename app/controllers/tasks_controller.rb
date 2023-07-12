@@ -19,7 +19,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to room_tasks_path(@room)
     else
-      :new
+      render :new
     end
   end
 
@@ -43,6 +43,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    @room = Room.find(params[:room_id])
     @task = Task.find(params[:id])
     @task.destroy
     redirect_to room_tasks_path(@room)

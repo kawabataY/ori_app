@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   get 'join_action', to: 'rooms#join_action', as: 'join_action'
 
   resources :rooms, only: [:index, :new, :create] do
-    resources :tasks, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+    resources :tasks do
       resources :comments, only: [:edit, :update, :create]
+      resources :mytasks, only: [:create, :destroy] 
+      resources :donetasks, only: [:create]
     end
   end
 end

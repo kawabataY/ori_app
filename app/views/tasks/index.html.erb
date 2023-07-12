@@ -6,9 +6,14 @@
     <h2>未振分のタスク</h2>
     <ul class="tasks-list">
       <% @tasks.each do |task| %>
-        <li class="task">
-          <%= task.content %>
-       </li>
+        <% if task.when == Date.today && !task.mytasks.exists?(user_id: current_user.id) %>
+          <li class="task">
+            <%= task.content %>
+            <%= link_to room_task_mytasks_path(room_id: @room.id, task_id: task.id), method: :post, class:"ido-link" do %>
+              <i class="fa-solid fa-hand"></i>
+            <% end %>
+          </li>
+        <% end %>
       <% end %>
     </ul>
   </div>
@@ -16,10 +21,19 @@
   <div class="current-users-tasks">
     <h2><%= current_user.name%>のタスク</h2>
     <ul class="tasks-list">
-      <% @tasks.each do |task| %>
-        <li class="task">
-          <%= task.content %>
-        </li>
+      <% current_user.mytasks.each do |mytask| %>
+        <% task = mytask.task %>
+        <% if task.when == Date.today && !Donetask.exists?(task_id: task.id, user_id: current_user.id) %>
+          <li class="task">
+            <%= link_to room_task_donetasks_path(room_id: @room.id, task_id: mytask.task_id), method: :post, class: "done-task-link" do %>
+                <i class="fa-solid fa-thumbs-up"></i>
+            <% end %>
+            <%= task.content %>
+            <%= link_to room_task_path(room_id: @room.id, id: mytask.task_id), method: :delete, class: "delete-task-link" do %>
+              <i class="fa-solid fa-trash-can"></i>
+            <% end %>
+          </li>
+        <% end %>
       <% end %>
     </ul>
   </div>
@@ -27,10 +41,15 @@
   <div class="partner-tasks">
     <h2><%= @partner_users.name %>のタスク</h2>
     <ul class="tasks-list">
-      <% @tasks.each do |task| %>
-        <li class="task">
-          <%= task.content %>
-        </li>
+      <% @partner_users.each do |partner| %>
+        <% partner.mytasks.each do |mytask| %>
+          <% task = mytask.task %>
+          <% if task.when == Date.today && !Donetask.exists?(task_id: task.id, user_id: partner.id) %>
+            <li class="task">
+              <%= task.task.content %>
+            </li>
+          <% end %>
+        <% end %>
       <% end %>
     </ul>
   </div>

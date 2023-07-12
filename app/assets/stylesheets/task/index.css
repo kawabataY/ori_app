@@ -17,15 +17,20 @@
     text-align: center;
     font-size: 30px;
   }
+  .ido-link{
+    text-emphasis: none;
+    color:  #F39B77;
+  }
   .tasks-list{
     margin: 10px 50px;
   }
   .task{
     background-color: #F9F9F9;
-    padding: 20px;
-    width: 60vw;
-    border-radius: 50%;
-    font-size: 20px;
+    padding: 8px;
+    margin-top: 1vh;
+    width: 70vw;
+    font-size: 25px;
+    position: relative;
     text-align: center;
   }
   .current-users-tasks{
@@ -34,6 +39,27 @@
   .current-users-tasks h2{
     text-align: center;
     font-size: 30px;
+  }
+  .done-task-link{
+    text-decoration: none;
+    color: black;
+  }
+  .fa-thumbs-up{
+    font-size: 30px;
+    position: absolute;
+    left: 5vw;
+    top: 13px;
+    color: #D9D2C3;
+  }
+  .fa-trash-can{
+    font-size: 15px;
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+  }
+  .delete-task-link{
+    text-decoration: none;
+    color: black;
   }
   .partner-tasks{
     margin-top: 10px;

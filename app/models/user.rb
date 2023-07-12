@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :room_users
   has_many :rooms, through: :room_users
   has_many :task
+  has_many :mytasks
   has_many :comments
 
   # バリデーション
