@@ -39,14 +39,14 @@
   </div>
 
   <div class="partner-tasks">
-    <h2><%= @partner_users.name %>のタスク</h2>
+    <h2><%= @partner_users.first.name %>のタスク</h2>
     <ul class="tasks-list">
       <% @partner_users.each do |partner| %>
         <% partner.mytasks.each do |mytask| %>
           <% task = mytask.task %>
           <% if task.when == Date.today && !Donetask.exists?(task_id: task.id, user_id: partner.id) %>
             <li class="task">
-              <%= task.task.content %>
+              <%= task.content %>
             </li>
           <% end %>
         <% end %>
