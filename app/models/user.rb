@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :task
   has_many :mytasks
   has_many :comments
+  has_many :shoppinglists
 
   # バリデーション
   validates :name, presence: true
