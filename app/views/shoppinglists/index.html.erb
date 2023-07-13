@@ -3,9 +3,13 @@
 <div class="shoppinglist-contens">
   <h1 class="shoppinglist-content-title">食材メモ</h1>
   <%= link_to "追加", new_room_shoppinglist_path %>
-  <div class="shoppinglists">
-    <%# メモの表示 %>
-  </div>
+  <ul class="shoppinglists">
+    <% @shoppinglists.each do |shoppinglist|%>
+      <li class="shoppinglist">
+        <%= shoppinglist.content %>
+      </li>
+    <% end %>
+  </ul>
 </div>
 
 <%= render "shared/footer" %>

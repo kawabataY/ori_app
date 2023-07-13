@@ -5,6 +5,7 @@ class ShoppinglistsController < ApplicationController
   def index
     @room = Room.find(params[:room_id])
     @users = @room.users
+    @shoppinglists = @room.shoppinglists.includes(:user)
   end
 
   def new
@@ -16,8 +17,9 @@ class ShoppinglistsController < ApplicationController
     @room = Room.find(params[:room_id])
     @shoppinglist = @room.shoppinglists.new(shoppinglist_params)
     if @shoppinglist.save
-      redirect_to room_tasks_path(@room)
+      redirect_to room_shoppinglists_path(@room)
     else
+      Rails.logger.error(@shoppinglist.errors.full_messages)
       render :new
     end
   end
@@ -48,6 +50,11 @@ class ShoppinglistsController < ApplicationController
   end
 
   private
+
+  def shoppinglist_params
+    params.require(:shoppinglist).permit(:content).merge(room_id: @room.id, user_id: current_user.id)
+  end
+
 
   def render_new_after_generate_answer
     render :new
