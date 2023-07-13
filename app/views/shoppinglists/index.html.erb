@@ -10,6 +10,9 @@
         <%= link_to room_shoppinglist_path(room_id: @room.id, id: shoppinglist.id), method: :delete, class: "delete-shoppinglist-link" do %>
           <i class="fa-solid fa-trash-can"></i>
         <% end %>
+        <%= link_to edit_room_shoppinglist_path(room_id: @room.id, id: shoppinglist.id), class: "edit-shoppinglist-link" do %>
+          <i class="fa-solid fa-pen-to-square"></i>
+        <% end %>
       </li>
     <% end %>
   </ul>

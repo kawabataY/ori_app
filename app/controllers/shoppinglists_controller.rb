@@ -24,6 +24,21 @@ class ShoppinglistsController < ApplicationController
     end
   end
 
+  def edit
+    @room = Room.find(params[:room_id])
+    @shoppinglist = Shoppinglist.find(params[:id])
+  end
+
+  def update
+    @room = Room.find(params[:room_id])
+    @shoppinglist = Shoppinglist.find(params[:id])
+    if @shoppinglist.update(shoppinglist_params)
+      redirect_to room_shoppinglists_path(@room)
+    else
+      render :edit
+    end
+  end
+
   def delete
     @room = Room.find(params[:room_id])
     @shoppinglist = Shoppinglist.find(params[:id])
