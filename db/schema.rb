@@ -56,10 +56,12 @@ ActiveRecord::Schema.define(version: 2023_07_12_164245) do
 
   create_table "shoppinglists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content", null: false
+    t.bigint "room_id", null: false
     t.bigint "user_id", null: false
-    t.bigint "task_id", null: false
+    t.bigint "task_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_shoppinglists_on_room_id"
     t.index ["task_id"], name: "index_shoppinglists_on_task_id"
     t.index ["user_id"], name: "index_shoppinglists_on_user_id"
   end
@@ -98,6 +100,7 @@ ActiveRecord::Schema.define(version: 2023_07_12_164245) do
   add_foreign_key "mytasks", "users"
   add_foreign_key "room_users", "rooms"
   add_foreign_key "room_users", "users"
+  add_foreign_key "shoppinglists", "rooms"
   add_foreign_key "shoppinglists", "tasks"
   add_foreign_key "shoppinglists", "users"
   add_foreign_key "tasks", "rooms"

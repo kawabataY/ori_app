@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   resources :rooms, only: [:index, :new, :create] do
     resources :tasks do
       resources :comments, only: [:edit, :update, :create]
-      resources :shoppinglists, only: [:new, :create]
       resources :mytasks, only: [:create, :destroy] 
       resources :donetasks, only: [:create]
+    end
+    resources :shoppinglists, only: [:index, :new, :create] do
+      post 'generate_answer', on: :collection
     end
   end
 end

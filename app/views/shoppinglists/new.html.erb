@@ -1,2 +1,22 @@
-require "openai"
+<%# <%= render "shared/header" %> 
 
+<div class='creat-shoppinglist-contents'>
+  <h1 class='creat-shoppinglist-title'>買い物メモ</h1>
+  <div class="creat-shoppinglist-content">
+    <%=form_with model: [@room, @shoppinglist], local: true do |f|%>
+      <%= f.text_field :content, class: 'input-default'%>
+      <%= f.submit "追加", class:"creat-btn" %>
+    <% end %>
+    <%= form_with url: generate_answer_room_shoppinglists_path(@room), method: :post do |f| %>
+      <%= f.text_field :question, class: 'input-default'%>
+      <%= f.submit "回答", class:"creat-btn" %>
+    <% end %>
+    <div class="openai-answer">
+        <p>回答: <%= @answer.inspect %></p>
+    </div>
+  </div>
+</div>
+
+
+
+<%# <%= render "shared/footer" %> 
