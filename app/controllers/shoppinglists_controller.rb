@@ -39,11 +39,11 @@ class ShoppinglistsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @room = Room.find(params[:room_id])
     @shoppinglist = Shoppinglist.find(params[:id])
     @shoppinglist.destroy
-    redirect_to room_shoppinglists(@room)
+    redirect_to room_shoppinglists_path(@room)
   end
 
   def generate_answer

@@ -1,0 +1,53 @@
+@media screen and (max-width: 480px){
+
+  .shoppinglist-contents{
+    height: 87vh;
+    background-color: #E9E5DA;
+  }
+  .shoppinglist-content-title{
+    text-align: center;
+    border-bottom: 1px dotted;
+    font-size: 20px;
+  }
+  .shoppinglists {
+    margin: 20px 50px;
+  }
+  .shoppinglist{
+    background-color: #F9F9F9;
+    padding: 8px;
+    margin-top: 4vh;
+    height: 30vh;
+    width: 70vw;
+    font-size: 20px;
+    position: relative;
+    text-align: center;
+    box-shadow: 3px 3px 5px 0px rgba(184, 173, 160, 1)
+  }
+  .shoppinglist-created-at{
+    font-size: 12px;
+  }
+  .shoppinglist-text{
+    text-align: left;
+    margin: 10px 20px;
+  }
+  
+  .delete-shoppinglist-link{
+    text-decoration: none;
+    color: black;
+  }
+  .shoppinglista-trash-can{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+  }
+  .edit-shoppinglist-link{
+    text-decoration: none;
+    color: black;
+  }
+  .fa-pen-to-square{
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+  }
+  
+}

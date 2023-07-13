@@ -30,7 +30,7 @@
             <% end %>
             <%= task.content %>
             <%= link_to room_task_path(room_id: @room.id, id: mytask.task_id), method: :delete, class: "delete-task-link" do %>
-              <i class="fa-solid fa-trash-can"></i>
+              <i class="fa-solid fa-trash-can task-trash-can"></i>
             <% end %>
           </li>
         <% end %>
