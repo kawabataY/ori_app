@@ -24,6 +24,13 @@ class ShoppinglistsController < ApplicationController
     end
   end
 
+  def delete
+    @room = Room.find(params[:room_id])
+    @shoppinglist = Shoppinglist.find(params[:id])
+    @shoppinglist.destroy
+    redirect_to room_shoppinglists(@room)
+  end
+
   def generate_answer
     client = OpenAI::Client.new(access_token:ENV["OPENAI_API_KEY"])
  
