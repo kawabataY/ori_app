@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+  var contentInput = document.getElementById('content-input');
+
   document.getElementById('question-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -27,6 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
           var pTag = document.createElement('p');
           pTag.textContent = '回答: ' + answer;
           answerContainer.appendChild(pTag);
+
+          contentInput.value = answer;
         }
       })
       .catch(function(error) {

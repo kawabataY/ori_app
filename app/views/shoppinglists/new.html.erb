@@ -4,7 +4,8 @@
   <h1 class='create-shoppinglist-title'>買い物メモ</h1>
   <div class="create-shoppinglist-content">
     <%=form_with model: [@room, @shoppinglist], local: true do |f|%>
-      <%= f.text_area :content, class: 'shoppinglist-input'%>
+      <% predefined_content = "事前に表示する文章" %>
+      <%= f.text_area :content, class: 'shoppinglist-input', id: 'content-input'%>
       <%= f.submit "追加", class:"create-btn" %>
     <% end %>
     <%= form_with url: generate_answer_room_shoppinglists_path(@room), method: :post, id: 'question-form' do |f| %>
@@ -24,5 +25,5 @@
 <%= render "shared/footersecond" %> 
 
 <script>
-  const roomId = <%= @room.id %>; 
+  const roomId = <%= @room.id %>;
 </script>

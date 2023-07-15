@@ -54,8 +54,12 @@ class ShoppinglistsController < ApplicationController
     response = client.chat(
       parameters: {
         model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: params[:question] }], 
-        max_tokens: 20,
+        messages: [
+          { role: "system", content: "今から料理名をお伝えするので、一般家庭で作るときスーパーで購入する材料を箇条書きで一つづつ教えてください。" },
+          { role: "user", content: "もしお伝えする料理名が料理名でない場合やその料理を知らない場合はただ、わからないとだけ返事してください" },
+          { role: "user", content: params[:question] },
+        ], 
+        max_tokens: 200,
       }
     )
     answer_content = response["choices"][0]["message"]["content"]
