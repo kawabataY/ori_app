@@ -11,6 +11,8 @@ class ShoppinglistsController < ApplicationController
   def new
     @shoppinglist = Shoppinglist.new
     @room = Room.find(params[:room_id])
+    @answer = nil
+    render :new, locals: { answer: @answer }
   end
 
   def create
@@ -56,30 +58,27 @@ class ShoppinglistsController < ApplicationController
         max_tokens: 20,
       }
     )
-    @answer = response.dig("choices", 0, "message", "content")
-    Rails.logger.info("API Response: #{response}") # APIのレスポンスをログに表示
+    answer_content = response["choices"][0]["message"]["content"]
+    Rails.logger.info("API Response: #{response}")
 
-    if @answer.present?
-      Rails.logger.info("Answer: #{@answer}") # 回答をログに表示
+
+    if answer_content.present?
+      @answer = answer_content
+      Rails.logger.info("Answer: #{@answer}")
     else
-      Rails.logger.info("No answer received from the API") # 回答がAPIから返ってこなかった場合のログ
+      @answer = "No answer received from the API"
+      Rails.logger.info("No answer received from the API")
     end
 
-    @shoppinglist = Shoppinglist.new
-    @room = Room.find(params[:room_id])
-
-    render_new_after_generate_answer
+    respond_to do |format|
+      format.json { render json: { answer: @answer } }
+    end
   end
 
   private
 
   def shoppinglist_params
     params.require(:shoppinglist).permit(:content).merge(room_id: @room.id, user_id: current_user.id)
-  end
-
-
-  def render_new_after_generate_answer
-    render :new
   end
 
 end

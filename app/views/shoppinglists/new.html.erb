@@ -1,22 +1,28 @@
-<%# <%= render "shared/header" %> 
+<%= render "shared/header" %> 
 
-<div class='creat-shoppinglist-contents'>
-  <h1 class='creat-shoppinglist-title'>買い物メモ</h1>
-  <div class="creat-shoppinglist-content">
+<div class='create-shoppinglist-contents'>
+  <h1 class='create-shoppinglist-title'>買い物メモ</h1>
+  <div class="create-shoppinglist-content">
     <%=form_with model: [@room, @shoppinglist], local: true do |f|%>
-      <%= f.text_field :content, class: 'input-default'%>
-      <%= f.submit "追加", class:"creat-btn" %>
+      <%= f.text_area :content, class: 'shoppinglist-input'%>
+      <%= f.submit "追加", class:"create-btn" %>
     <% end %>
-    <%= form_with url: generate_answer_room_shoppinglists_path(@room), method: :post do |f| %>
-      <%= f.text_field :question, class: 'input-default'%>
-      <%= f.submit "回答", class:"creat-btn" %>
+    <%= form_with url: generate_answer_room_shoppinglists_path(@room), method: :post, id: 'question-form' do |f| %>
+      <%= f.text_field :question, class: 'input-default', id: 'question-input'%>
+      <%= f.submit "回答", class:"create-btn" %>
     <% end %>
-    <div class="openai-answer">
-        <p>回答: <%= @answer.inspect %></p>
+    <div class="openai-answer" id="answer-container">
+      <% if @answer.present? %>
+        <p>回答: <%= @answer %></p>
+      <% end %>
     </div>
   </div>
 </div>
 
 
 
-<%# <%= render "shared/footer" %> 
+<%= render "shared/footersecond" %> 
+
+<script>
+  const roomId = <%= @room.id %>; 
+</script>

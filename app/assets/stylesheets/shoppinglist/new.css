@@ -1,0 +1,18 @@
+.create-shoppinglist-contents{
+  height: 87vh;
+  background-color: #E9E5DA;
+}
+.create-shoppinglist-title{
+  text-align: center;
+  border-bottom: 1px dotted;
+  font-size: 20px;
+}
+.create-shoppinglist-content{
+  margin: 20px 50px;
+}
+.shoppinglist-input{
+  height: 30vh;
+  width: 77vw;
+  border: 0 ;
+  border-radius: 10%;
+}

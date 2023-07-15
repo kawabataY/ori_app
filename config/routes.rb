@@ -11,7 +11,9 @@ Rails.application.routes.draw do
       resources :donetasks, only: [:create]
     end
     resources :shoppinglists, only: [:index, :new, :create, :edit, :update,:destroy] do
-      post 'generate_answer', on: :collection
+      collection do
+        post 'generate_answer'
+      end
     end
   end
 end
