@@ -9,10 +9,39 @@
 }
 .create-shoppinglist-content{
   margin: 20px 50px;
+  position: relative;
 }
 .shoppinglist-input{
-  height: 30vh;
-  width: 77vw;
+  height: 50vh;
+  width: 70vw;
   border: 0 ;
   border-radius: 10%;
+  padding: 15px;
+}
+.shoppinglist-post-btn{
+  background: linear-gradient(to bottom, #F9F9F9, #E9E5DA, #D8D8D8);
+  box-shadow: 1px 6px 6px 0px rgba(0,0,0,0.2);
+  color: black;
+  padding: 25px 20px;
+  border: none; 
+  border-radius: 50%;
+  position: absolute;
+  top: 43vh;
+  left:55vw
+}
+.ingredients-ai{
+  margin-top: 60px;
+}
+.search-ingredients{
+  margin-top: 10px;
+  padding-left: 10px;
+  width: 55vw;
+  height: 40px;
+  border: none;
+}
+.search-ingredients-btn{
+  background: linear-gradient(to bottom, #F9F9F9, #E9E5DA, #D8D8D8);
+  box-shadow: 1px 6px 6px 0px rgba(0,0,0,0.2);
+  border: none; 
+  padding: 8px 10px;
 }
