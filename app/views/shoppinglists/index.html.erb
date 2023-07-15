@@ -1,0 +1,23 @@
+<%= render "shared/header" %>
+
+<div class="shoppinglist-contents">
+  <h1 class="shoppinglist-content-title">買い物メモ</h1>
+  <ul class="shoppinglists">
+    <% @shoppinglists.each do |shoppinglist|%>
+      <li class="shoppinglist">
+        <%= content_tag :div,shoppinglist.created_at.localtime.strftime('%Y年%m月%d日'), class: "shoppinglist-created-at" %>
+        <%= content_tag :div, shoppinglist.content.gsub("\n", "<br>").html_safe, class: "shoppinglist-text" %>
+        <div class="shoppinglist-links">
+          <%= link_to room_shoppinglist_path(room_id: @room.id, id: shoppinglist.id), method: :delete, class: "delete-shoppinglist-link" do %>
+            <i class="fa-solid fa-trash-can shoppinglista-trash-can"></i>
+          <% end %>
+          <%= link_to edit_room_shoppinglist_path(room_id: @room.id, id: shoppinglist.id), class: "edit-shoppinglist-link" do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<%= render "shared/footersecond" %>

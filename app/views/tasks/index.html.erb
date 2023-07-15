@@ -6,7 +6,8 @@
     <h2>未振分のタスク</h2>
     <ul class="tasks-list">
       <% @tasks.each do |task| %>
-        <% if task.when == Date.today && !task.mytasks.exists?(user_id: current_user.id) %>
+        <% mytask = Mytask.find_by(task_id: task.id)%>
+        <% if task.when == Date.today && mytask.nil? && task.room_id == @room.id %>
           <li class="task">
             <%= task.content %>
             <%= link_to room_task_mytasks_path(room_id: @room.id, task_id: task.id), method: :post, class:"ido-link" do %>
@@ -30,7 +31,7 @@
             <% end %>
             <%= task.content %>
             <%= link_to room_task_path(room_id: @room.id, id: mytask.task_id), method: :delete, class: "delete-task-link" do %>
-              <i class="fa-solid fa-trash-can"></i>
+              <i class="fa-solid fa-trash-can task-trash-can"></i>
             <% end %>
           </li>
         <% end %>

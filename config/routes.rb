@@ -10,5 +10,10 @@ Rails.application.routes.draw do
       resources :mytasks, only: [:create, :destroy] 
       resources :donetasks, only: [:create]
     end
+    resources :shoppinglists, only: [:index, :new, :create, :edit, :update,:destroy] do
+      collection do
+        post 'generate_answer'
+      end
+    end
   end
 end
