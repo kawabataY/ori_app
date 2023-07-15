@@ -4,14 +4,16 @@
   <h1 class='create-shoppinglist-title'>買い物メモ</h1>
   <div class="create-shoppinglist-content">
     <%=form_with model: [@room, @shoppinglist], local: true do |f|%>
-      <% predefined_content = "事前に表示する文章" %>
-      <%= f.text_area :content, class: 'shoppinglist-input', id: 'content-input'%>
-      <%= f.submit "追加", class:"create-btn" %>
+      <%= f.text_area :content,placeholder: "例：\n・ジャガイモ\n・ニンジン\n・トマト\n・豚肉" , class: 'shoppinglist-input', id: 'content-input'%>
+      <%= f.submit "追加", class:"shoppinglist-post-btn" %>
     <% end %>
-    <%= form_with url: generate_answer_room_shoppinglists_path(@room), method: :post, id: 'question-form' do |f| %>
-      <%= f.text_field :question, class: 'input-default', id: 'question-input'%>
-      <%= f.submit "回答", class:"create-btn" %>
-    <% end %>
+    <div class="ingredients-ai">
+      <p><small>オプション：<br>下のフォームでは料理名から材料を提案します。</small></p>
+      <%= form_with url: generate_answer_room_shoppinglists_path(@room), method: :post, id: 'question-form' do |f| %>
+        <%= f.text_field :question,placeholder: "例：カレーライス" , class: 'search-ingredients', id: 'question-input'%>
+        <%= f.submit "検索", class:"search-ingredients-btn" %>
+      <% end %>
+    </div>
     <div class="openai-answer" id="answer-container">
       <% if @answer.present? %>
         <p>回答: <%= @answer %></p>

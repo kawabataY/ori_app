@@ -1,8 +1,8 @@
 @media screen and (max-width: 480px){
 
   .shoppinglist-contents{
-    height: 87vh;
     background-color: #E9E5DA;
+    padding-bottom: 100px;
   }
   .shoppinglist-content-title{
     text-align: center;
@@ -16,7 +16,7 @@
     background-color: #F9F9F9;
     padding: 8px;
     margin-top: 4vh;
-    height: 30vh;
+    min-height: 30vh;
     width: 70vw;
     font-size: 20px;
     position: relative;

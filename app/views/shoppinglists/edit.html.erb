@@ -1,15 +1,14 @@
-<div class="main">
-  <div class="inner">
-    <div class="form__wrapper">
-      <h2 class="page-heading">買い物メモ編集</h2>
-      <%= form_with model: [@room, @shoppinglist], local: true do |f| %>
-        <div class='task-form__field'>
-          <%= f.label :content, '内容', class: ''%><br>
-          <%= f.text_field :content, class: '', placeholder: 'タスク'%>
-        </div>
+<%= render "shared/header" %> 
 
-        <%= f.submit "編集"%>
+<div class="edit-shoppinglist-contents">
+  <h1 class="edit-shoppinglist-title">買い物メモ編集</h1>
+    <div class="edit-shoppinglist-content">
+      <%= form_with model: [@room, @shoppinglist], local: true do |f| %>
+        <%= f.text_area :content,class: 'edit-shoppinglist-input', id: 'content-input'%>
+        <%= f.submit "編集", class:"shoppinglist-edit-btn" %>
       <% end %>
     </div>
   </div>
 </div>
+
+<%= render "shared/footersecond" %> 

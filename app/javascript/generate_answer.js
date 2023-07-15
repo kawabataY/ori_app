@@ -26,10 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
         var answerContainer = document.getElementById('answer-container');
         answerContainer.innerHTML = '';
         if (answer) {
-          var pTag = document.createElement('p');
-          pTag.textContent = '回答: ' + answer;
-          answerContainer.appendChild(pTag);
-
           contentInput.value = answer;
         }
       })
