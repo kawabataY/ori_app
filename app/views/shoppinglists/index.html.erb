@@ -3,7 +3,7 @@
 <div class="shoppinglist-contents">
   <h1 class="shoppinglist-content-title">買い物メモ</h1>
   <ul class="shoppinglists">
-    <% @shoppinglists.each do |shoppinglist|%>
+    <% @shoppinglists.sort_by(&:created_at).reverse.each do |shoppinglist|%>
       <li class="shoppinglist">
         <%= content_tag :div,shoppinglist.created_at.localtime.strftime('%Y年%m月%d日'), class: "shoppinglist-created-at" %>
         <%= content_tag :div, shoppinglist.content.gsub("\n", "<br>").html_safe, class: "shoppinglist-text" %>
