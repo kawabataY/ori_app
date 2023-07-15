@@ -1,0 +1,31 @@
+.edit-shoppinglist-contents{
+  height: 87vh;
+  background-color: #E9E5DA;
+}
+.edit-shoppinglist-title{
+  text-align: center;
+  border-bottom: 1px dotted;
+  font-size: 20px;
+}
+.edit-shoppinglist-content{
+  margin: 20px 50px;
+  position: relative;
+}
+.edit-shoppinglist-input{
+  height: 70vh;
+  width: 65vw;
+  border: 0 ;
+  border-radius: 10%;
+  padding: 20px;
+}
+.shoppinglist-edit-btn{
+  background: linear-gradient(to bottom, #F9F9F9, #E9E5DA, #D8D8D8);
+  box-shadow: 1px 6px 6px 0px rgba(0,0,0,0.2);
+  color: black;
+  padding: 25px 20px;
+  border: none; 
+  border-radius: 50%;
+  position: absolute;
+  top: 63vh;
+  left:55vw
+}
