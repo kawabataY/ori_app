@@ -1,7 +1,6 @@
-require "openai"
+require 'openai'
 
 class ShoppinglistsController < ApplicationController
-
   def index
     @room = Room.find(params[:room_id])
     @users = @room.users
@@ -49,29 +48,28 @@ class ShoppinglistsController < ApplicationController
   end
 
   def generate_answer
-    client = OpenAI::Client.new(access_token:ENV["OPENAI_API_KEY"])
- 
+    client = OpenAI::Client.new(access_token: ENV['OPENAI_API_KEY'])
+
     response = client.chat(
       parameters: {
-        model: "gpt-3.5-turbo",
+        model: 'gpt-3.5-turbo',
         messages: [
-          { role: "system", content: "今から料理名をお伝えするので、一般家庭で作るときスーパーで購入する材料を箇条書きで一つづつ教えてください。" },
-          { role: "user", content: "もしお伝えする料理名が料理名でない場合やその料理を知らない場合はただ、わからないとだけ返事してください" },
-          { role: "user", content: params[:question] },
-        ], 
-        max_tokens: 200,
+          { role: 'system', content: '今から料理名をお伝えするので、一般家庭で作るときスーパーで購入する材料を箇条書きで一つづつ教えてください。' },
+          { role: 'user', content: 'もしお伝えする料理名が料理名でない場合やその料理を知らない場合はただ、わからないとだけ返事してください' },
+          { role: 'user', content: params[:question] }
+        ],
+        max_tokens: 200
       }
     )
-    answer_content = response["choices"][0]["message"]["content"]
+    answer_content = response['choices'][0]['message']['content']
     Rails.logger.info("API Response: #{response}")
-
 
     if answer_content.present?
       @answer = answer_content
       Rails.logger.info("Answer: #{@answer}")
     else
-      @answer = "No answer received from the API"
-      Rails.logger.info("No answer received from the API")
+      @answer = 'No answer received from the API'
+      Rails.logger.info('No answer received from the API')
     end
 
     respond_to do |format|
@@ -84,5 +82,4 @@ class ShoppinglistsController < ApplicationController
   def shoppinglist_params
     params.require(:shoppinglist).permit(:content).merge(room_id: @room.id, user_id: current_user.id)
   end
-
 end

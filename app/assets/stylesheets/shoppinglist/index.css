@@ -3,6 +3,7 @@
   .shoppinglist-contents{
     background-color: #E9E5DA;
     padding-bottom: 100px;
+    min-height: 100vh;
   }
   .shoppinglist-content-title{
     text-align: center;

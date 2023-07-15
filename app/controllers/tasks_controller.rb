@@ -53,13 +53,12 @@ class TasksController < ApplicationController
 
   def move_to_root
     @room = Room.find(params[:room_id])
-    unless @room.users.include?(current_user)
-      redirect_to root_path
-    end
+    return if @room.users.include?(current_user)
+
+    redirect_to root_path
   end
 
   def task_params
-    params.require(:task).permit(:content,:frequency_id,:when).merge(user_id: current_user.id)
+    params.require(:task).permit(:content, :frequency_id, :when).merge(user_id: current_user.id)
   end
-
 end

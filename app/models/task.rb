@@ -8,5 +8,5 @@ class Task < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :shoppinglists, dependent: :destroy
 
-  validates :frequency_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :frequency_id, numericality: { other_than: 1, message: "can't be blank" }
 end
