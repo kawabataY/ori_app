@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+ @media screen and (min-width: 481px)  {
+  
+ 
+ .development-screen{
+  position:fixed;
+  background-color: #E9E5DA;
+  width: 100vw;
+  height: 100vh;
+  z-index: 20;
+ }
+.webresponsibe-alart{
+  font-size: 20px;
+  text-align: center;
+  margin-top: 40vh;
+}
+.fa-face-tired{
+  font-size: 30px;
+  color: cadetblue;
+}
+
+}
