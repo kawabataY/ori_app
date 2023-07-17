@@ -1,70 +1,98 @@
-# テーブル設計
+# アプリケーション名
 
-## users テーブル
+YOTODO
 
-| Column             | Type   | Options                  |
-| ------------------ | ------ | ------------------------ |
-| name               | string | null: false              |
-| user_id            | string | null: false              |
-| email              | string | null: false,unique: true |
-| encrypted_password | string | null: false              |
+# アプリケーション概要
+ユーザー同士でタスクを共有し、任意に振分けることでタスク管理が楽に行えます。タスクには追記を行えるため、相手ユーザーに対しての「ついでのお願い」や作業のメモ書きを行えます。
 
-### Association
+# URL
 
-- has_many :tasks 
-- belongs_to :rooms
-- has_many :comments
-- has_many :mytasks
+https://ori-app-39403.onrender.com
 
-## rooms テーブル
+# テスト用アカウント
 
-| Column             | Type         | Options                        |
-| ------------------ | ------------ | ------------------------------ |
-| room_id            | string       | null: false
-| user               | references   | null: false, foreign_key: true |
+・Basic認証パスワード：oriapp  
+・Basic認証ID：7777  
+・メールアドレス：hoge@gmail  
+・パスワード：testtest7  
 
-### Association
+# 利用方法
 
-- has_many :user
+## タスクの追加
+1.ユーザー新規登録を行う  
+2.ルーム作成画面から共有する相手のIDを入力して共有ルームを作る  
+3.トップページ(一覧ページ)の＋ボタンからタスク追加ページへ遷移する  
+4.タスクの内容(コンテンツ・実施日・頻度)を入力し追加する  
 
-## tasks テーブル
+## タスクの振分
+1.未分類タスクリストから挙手ボタンにて自身のタスクに振り分ける  
+2.タスクを完了したら「goodボタン」を押す
 
-| Column             | Type         | Options                        |
-| ------------------ | ------------ | ------------------------------ |
-| taskname           | string       | null: false                    |
-| frequency_id       | integer      | null: false                    |
-| when               | date         | null: false                    |
-| user               | references   | null: false, foreign_key: true |
+## 買い物メモ
+1.トップページ(一覧ページ)のフッターから買い物メモページに遷移する  
+2.＋ボタンから買い物メモ追加ページへ遷移する  
+3.メモを入力して追加する
 
-### Association
+# アプリケーションを作成した背景
+自身の周りでお付き合いや結婚を機に同棲を始めた方々が増えた時期があり、彼らに近況を尋ねると一様に「家事分担がうまくいかない」にという課題を抱えていることが判明しました。課題を分析した結果、家事に関して何をしたらいいのか、いつしたらいいのかとお互いが進捗を管理できないことが要因の１つであると仮定しました。しかし、彼らの中には口頭や日常で使うSNSを利用して家事のコミュニケーションを行うことに苦手意識を持つ者が多く、同様の問題を抱えている方の多いと推測しました。そこで、これらの原因を解決するために、ユーザー同士でタスクを共有し管理し合えるアプリケーションを開発しました。
 
-- belongs_to :user
-- has_many   :comments
-- has_one    :mytask
+# 洗い出した要件
+[要件定義書へのリンク](https://docs.google.com/spreadsheets/d/1R5RnnczxZ-GydCns-qhliuUY2gaHS1sIy8YgU1_m1e4/edit?usp=sharing)
 
-## comments テーブル
+# 実装した機能についての画像やGIF
+①タスク振分け機能：  
+投稿されたタスクは一度未分類リストに表示されます。挙手ボタンを押していただくと自身のタスクに振り分けされます。  
+②買い物メモ提案機能：  
+下フォームに料理名を入力すると、 AIがその料理の一般的な材料のリストを作成します。  
 
-| Column             | Type         | Options                        |
-| ------------------ | ------------ | ------------------------------ |
-| content            | text         | null: false                    |
-| task               | references   | null: false, foreign_key: true |
-| user               | references   | null: false, foreign_key: true |
+[![Image from Gyazo](https://i.gyazo.com/b673d1e5b121e83873c2cf4bbdcb9d9f.gif)](https://gyazo.com/b673d1e5b121e83873c2cf4bbdcb9d9f)
+[![Image from Gyazo](https://i.gyazo.com/ccde4694149dc65e9ebec66bc40dba5a.gif)](https://gyazo.com/ccde4694149dc65e9ebec66bc40dba5a)
 
-### Association
+# 実装予定の機能
+現在、レスポンシブによるPC画面表示を作成中です。
+今後は、1.コメント機能 2.タスク予定管理機能 3.ユーザー応援機能の順に開発を進める予定です。
+また、コードの可読性を上げるための精査、イレギュラーな挙動にならないためにバリデーションや単体・統合テストを順次行っていきます。
 
-- belongs_to :user
-- belongs_to :task
+最後に、よりユーザーの使い勝手を上げるためにReactの技術と、環境を安定させるためDockerの技術を学習中のため今後の実装を考えております。
 
-## mytasks テーブル
+# データベース設計
+[![Image from Gyazo](https://i.gyazo.com/401ce704715d77c2d86e5e7a768598e4.png)](https://gyazo.com/401ce704715d77c2d86e5e7a768598e4)
 
-| Column             | Type         | Options                        |
-| ------------------ | ------------ | ------------------------------ |
-| task               | references   | null: false, foreign_key: true |
-| user               | references   | null: false, foreign_key: true |
+# 画面遷移図
+[![Image from Gyazo](https://i.gyazo.com/9e6119660cbd822a2ec600d8c613b091.png)](https://gyazo.com/9e6119660cbd822a2ec600d8c613b091)
 
-### Association
+# 開発環境
+### テキストエディタ
+・Visual Studio Code  
 
-- belongs_to :user
-- belongs_to :task
+### サービス
+・GitHub
+### フレームワーク
+・Rails 6.0.6.1  
 
+### 言語
+・HTML5 & CSS3  
+・Ruby  
+・Javascript
 
+### 追加Gem
+・ruby-openai  
+・devise  
+・pry-rails  
+・active_hash  
+・rubocop  
+### テスト
+・factory_bot_rails  
+・faker  
+・rspec-rails  
+### デプロイ 
+・Render  
+・postgresql  
+# ローカルでの動作方法
+% git clone https://github.com/kawabataY/ori_app.git  
+% cd ori_app  
+% bundle install  
+% yarn install  
+
+# 工夫したポイント
+機能や、表示画面を極力シンプルに仕上げ、日常使いがしやすくアプリケーション使いに不慣れな方にも利用しやすいアプリにしました。またディクトリの階層を浅く広くすることでページの遷移を減らし、メモ機能ではAI回答機能のAPIを使用し、メモの内容を提案することで入力の手間を減らす仕様になっています。
