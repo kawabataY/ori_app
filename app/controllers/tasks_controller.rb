@@ -6,6 +6,7 @@ class TasksController < ApplicationController
     @users = @room.users
     @partner_users = @room.users.where.not(id: current_user.id)
     @tasks = @room.tasks.includes(:user)
+    @shoppinglists = @room.shoppinglists.includes(:user)
   end
 
   def new
