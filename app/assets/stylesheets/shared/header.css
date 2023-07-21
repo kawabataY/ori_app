@@ -10,3 +10,18 @@
   top: -9vh;
   left: 25vw;
 }
+
+
+/* PC用WEBデザイン */
+@media screen and (min-width: 481px){
+
+  .top-page-header{
+    height: 65px
+  }
+  .logo-img{
+    width: 200px;
+    top: -70px;
+    left: 0;
+  }
+
+}

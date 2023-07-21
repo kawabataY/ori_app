@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://kit.fontawesome.com/ef51a87b3b.js" crossorigin="anonymous"></script>
     <link href="/public/css/all.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,13 +15,15 @@
   </head>
 
   <body>
-    <div class="development-screen">
-      <p class="webresponsibe-alart">
+    <!--<div class="development-screen">
+       <p class="webresponsibe-alart">
         申し訳ございません<i class="fa-solid fa-face-tired"></i>
         <br>PCサイズのレスポンシブは現在開発中です。
         <br>幅480px未満での表示でお楽しみください。
         </p>
-    </div>
+    </div> -->
     <%= yield %>
+
+    <script src="https://kit.fontawesome.com/ef51a87b3b.js" crossorigin="anonymous"></script>
   </body>
 </html>
