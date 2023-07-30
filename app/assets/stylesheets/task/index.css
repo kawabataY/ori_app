@@ -166,6 +166,13 @@
     border-bottom: 1px dotted;
     font-size: 20px;
   }
+  .pc-create-shoppinglist-link .fa-plus{
+    font-size: 15px;
+    padding: 5px 5px;
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.2);
+  }
+
+  }
   .shoppinglists {
     margin: 20px 50px;
   }

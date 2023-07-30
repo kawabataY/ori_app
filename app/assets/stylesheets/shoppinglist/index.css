@@ -1,51 +1,60 @@
-  .shoppinglist-contents{
-    background-color: #E9E5DA;
-    padding-bottom: 100px;
-    min-height: 100vh;
+.shoppinglist-contents{
+  background-color: #E9E5DA;
+  padding-bottom: 100px;
+  min-height: 100vh;
+}
+.shoppinglist-content-title{
+  text-align: center;
+  border-bottom: 1px dotted;
+  font-size: 20px;
+}
+.shoppinglists {
+  margin: 20px 50px;
+}
+.shoppinglist{
+  background-color: #F9F9F9;
+  padding: 8px;
+  margin-top: 4vh;
+  min-height: 30vh;
+  width: 70vw;
+  font-size: 20px;
+  position: relative;
+  text-align: center;
+  box-shadow: 3px 3px 5px 0px rgba(184, 173, 160, 1)
+}
+.shoppinglist-created-at{
+  font-size: 12px;
+}
+.shoppinglist-text{
+  text-align: left;
+  margin: 10px 20px;
+}
+.delete-shoppinglist-link{
+  text-decoration: none;
+  color: black;
+}
+.shoppinglista-trash-can{
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+.edit-shoppinglist-link{
+  text-decoration: none;
+  color: black;
+}
+.fa-pen-to-square{
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}
+/* PC用WEBデザイン */
+@media screen and (min-width: 481px){
+  .shoppinglist-contents .shoppinglists{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
   }
-  .shoppinglist-content-title{
-    text-align: center;
-    border-bottom: 1px dotted;
-    font-size: 20px;
+  .shoppinglist-contents .shoppinglist{
+    flex: 0 0 30%
   }
-  .shoppinglists {
-    margin: 20px 50px;
-  }
-  .shoppinglist{
-    background-color: #F9F9F9;
-    padding: 8px;
-    margin-top: 4vh;
-    min-height: 30vh;
-    width: 70vw;
-    font-size: 20px;
-    position: relative;
-    text-align: center;
-    box-shadow: 3px 3px 5px 0px rgba(184, 173, 160, 1)
-  }
-  .shoppinglist-created-at{
-    font-size: 12px;
-  }
-  .shoppinglist-text{
-    text-align: left;
-    margin: 10px 20px;
-  }
-  
-  .delete-shoppinglist-link{
-    text-decoration: none;
-    color: black;
-  }
-  .shoppinglista-trash-can{
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-  }
-  .edit-shoppinglist-link{
-    text-decoration: none;
-    color: black;
-  }
-  .fa-pen-to-square{
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-  }
-  
+}
