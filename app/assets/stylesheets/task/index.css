@@ -87,14 +87,16 @@
   }
   .pc-create-task{
     display: block;
-    position: absolute;
-    top: 5px;
-    left: 20vw;
+    position: relative;
+    text-decoration: none;
   }
   .pc-create-task .fa-plus{
     font-size: 15px;
     padding: 5px 5px;
     box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.2);
+    position: absolute;
+    top: 5px;
+    right: -20px;
   }
   /* 未分類タスク */
   .total-tasks{
@@ -105,6 +107,7 @@
   }
   .total-tasks h2{
     font-size: 25px;
+    color: black;
   }
   .ido-link{
     text-emphasis: none;
@@ -159,6 +162,7 @@
   /* 買い物メモ */
   .pc-shoppinglists-contents{
     float: right;
+    width: 30vw;
     background-color:#D9D2C3;
   }
   .shoppinglist-content-title{
@@ -171,17 +175,15 @@
     padding: 5px 5px;
     box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.2);
   }
-
-  }
   .shoppinglists {
-    margin: 20px 50px;
+    margin: 20px 5vw;
   }
   .shoppinglist{
     background-color: #F9F9F9;
     padding: 8px;
     margin-top: 4vh;
     min-height: 30vh;
-    width: 25vw;
+    width: 20vw;
     font-size: 20px;
     position: relative;
     text-align: center;

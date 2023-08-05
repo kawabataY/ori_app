@@ -1,3 +1,6 @@
+.pc-create-shoppinglist-link{
+  display: none;
+}
 .shoppinglist-contents{
   background-color: #E9E5DA;
   padding-bottom: 100px;
@@ -7,6 +10,9 @@
   text-align: center;
   border-bottom: 1px dotted;
   font-size: 20px;
+}
+.pc-create-shoppinglist-link{
+  display: none;
 }
 .shoppinglists {
   margin: 20px 50px;
@@ -49,6 +55,9 @@
 }
 /* PC用WEBデザイン */
 @media screen and (min-width: 481px){
+  .pc-create-shoppinglist-link{
+    display: block;
+  }
   .shoppinglist-contents .shoppinglists{
     display: flex;
     flex-flow: row wrap;
@@ -56,5 +65,20 @@
   }
   .shoppinglist-contents .shoppinglist{
     flex: 0 0 30%
+  }
+  .back-to-index{
+    position: fixed;
+    z-index: 10;
+    right: 20px;
+    bottom: 20px;
+  }
+  .memo-to-home{
+    font-size: 50px;
+    background: linear-gradient(to bottom, #F9F9F9, #E9E5DA, #D8D8D8);
+    box-shadow: 1px 6px 6px 0px rgba(0,0,0,0.2);
+    padding: 20px 15px;
+    border: none;
+    border-radius: 50%;
+    color: #5E869C;
   }
 }
