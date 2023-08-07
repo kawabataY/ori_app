@@ -1,5 +1,8 @@
-<h1 class="shoppinglist-content-title">買い物メモ</h1>
-
+<h1 class="shoppinglist-content-title">買い物メモ
+  <%= link_to new_room_shoppinglist_path, class: "create-shoppinglist-link pc-create-shoppinglist-link" do%>
+    <i class="fa-solid fa-plus"></i>
+  <% end %>
+</h1>
 <ul class="shoppinglists">
     <% @shoppinglists.sort_by(&:created_at).reverse.each do |shoppinglist|%>
       <li class="shoppinglist">

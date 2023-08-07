@@ -45,3 +45,21 @@
   border: none; 
   padding: 8px 10px;
 }
+/* PC用WEBデザイン */
+@media screen and (min-width: 481px){
+  .create-shoppinglist-contents{
+    height: 93vh;
+    padding: 5vh 15vw;
+  }
+  .create-shoppinglist-content{
+    margin: 20px 0px;
+    position: relative;
+  }
+  .shoppinglist-input{
+    height: 50vh;
+    width: 68vw;
+    border: 0 ;
+    border-radius: 0%;
+    padding: 15px;
+  }
+}
