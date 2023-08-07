@@ -70,7 +70,9 @@
   text-align: center;
   font-size: 30px;
 }
-
+.pc-shoppinglists-contents{
+  display: none;
+}
 /* PC用WEBデザイン */
 @media screen and (min-width: 481px){
   .main-container{
@@ -161,6 +163,7 @@
   }
   /* 買い物メモ */
   .pc-shoppinglists-contents{
+    display:block;
     float: right;
     width: 30vw;
     background-color:#D9D2C3;
