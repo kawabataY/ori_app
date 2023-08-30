@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2023_07_12_164245) do
   create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content", null: false
     t.integer "frequency_id", null: false
-    t.date "when", null: false
+    t.date "itsu", null: false
     t.bigint "room_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

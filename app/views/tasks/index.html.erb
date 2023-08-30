@@ -12,7 +12,7 @@
       <ul class="tasks-list">
         <% @tasks.each do |task| %>
           <% mytask = Mytask.find_by(task_id: task.id)%>
-          <% if task.when == Date.today && mytask.nil? && task.room_id == @room.id %>
+          <% if task.itsu == Date.today && mytask.nil? && task.room_id == @room.id %>
             <li class="task">
               <%= task.content %>
               <%= link_to room_task_mytasks_path(room_id: @room.id, task_id: task.id), method: :post, class:"ido-link" do %>
@@ -29,7 +29,7 @@
         <ul class="tasks-list">
           <% current_user.mytasks.each do |mytask| %>
             <% task = mytask.task %>
-            <% if task.when == Date.today && !Donetask.exists?(task_id: task.id, user_id: current_user.id) %>
+            <% if task.itsu == Date.today && !Donetask.exists?(task_id: task.id, user_id: current_user.id) %>
               <li class="task">
                 <%= link_to room_task_donetasks_path(room_id: @room.id, task_id: mytask.task_id), method: :post, class: "done-task-link" do %>
                     <i class="fa-solid fa-thumbs-up"></i>
@@ -49,7 +49,7 @@
           <% @partner_users.each do |partner| %>
             <% partner.mytasks.each do |mytask| %>
               <% task = mytask.task %>
-              <% if task.when == Date.today && !Donetask.exists?(task_id: task.id, user_id: partner.id) %>
+              <% if task.itsu == Date.today && !Donetask.exists?(task_id: task.id, user_id: partner.id) %>
                 <li class="task">
                   <%= task.content %>
                 </li>

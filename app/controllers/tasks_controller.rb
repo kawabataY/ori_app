@@ -60,6 +60,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:content, :frequency_id, :when).merge(user_id: current_user.id)
+    params.require(:task).permit(:content, :frequency_id, :itsu).merge(user_id: current_user.id)
   end
 end
