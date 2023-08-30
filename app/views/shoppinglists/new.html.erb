@@ -8,7 +8,7 @@
       <%= f.submit "追加", class:"shoppinglist-post-btn" %>
     <% end %>
     <div class="ingredients-ai">
-      <p><small>オプション：<br>下のフォームでは料理名から材料を提案します。</small></p>
+      <p>オプション：<br>下フォームでは料理名から材料を提案します。<small>※料理名以外を入力すると予期せぬ回答が返ることがあります</small></p>
       <%= form_with url: generate_answer_room_shoppinglists_path(@room), method: :post, id: 'question-form' do |f| %>
         <%= f.text_field :question,placeholder: "例：カレーライス" , class: 'search-ingredients', id: 'question-input'%>
         <%= f.submit "検索", class:"search-ingredients-btn" %>

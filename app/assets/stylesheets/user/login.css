@@ -1,4 +1,4 @@
-@media screen and (max-width: 480px){
+
 
   .device-contents {
     height: 60vh;
@@ -58,5 +58,25 @@
     border-radius: 20%;
     padding: 5% 10%;
     margin-top: 10px;
+  }
+@media screen and (min-width: 481px){
+  .device-contents {
+    height: 60vh;
+    padding: 20vh 30vw;
+  }
+  .login-title{
+    top: 10vh;
+    left: 45vw;
+  }
+  .device-container{
+    width: 25vw;
+    height: 25vh;
+  }
+  .to-registration{
+    display: none;
+  }
+  .login-red-btn{
+    margin-top: -130px;
+    padding: 25px 20px;
   }
 }
