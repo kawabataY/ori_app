@@ -8,5 +8,13 @@ class Task < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :shoppinglists, dependent: :destroy
 
-  validates :frequency_id, numericality: { other_than: 1, message: "can't be blank" }
+
+  # バリデーション
+  with_options presence: true do
+    validates :content, format: { without: /[!@#\$%^&*(),.?":{}|<>]/, message: "cannot contain special characters" }
+    validates :itsu
+    validates :room
+    validates :user 
+  end
+  
 end
